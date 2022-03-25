@@ -12,5 +12,6 @@ routes.post('/:user_id/checkin', CheckinsController.createCheckin);
 routes.get('/:user_id/checkins', CheckinsController.checkins);
 
 routes.post('/:user_id/titulo', TitulosController.createT);
+routes.get('/:user_id/titulo/all', TitulosController.allT);
 
 module.exports = routes;

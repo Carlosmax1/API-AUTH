@@ -12,4 +12,13 @@ module.exports = {
   createT: nome => db.titulos.findOrCreate({
     where: { nome }
   }),
+  findAllT: id => db.Usuario.findByPk(id, {
+    include: {
+      association: 'titulos',
+      attributes: ['nome'],
+      through: {
+        attributes: []
+      }
+    }
+  })
 };

@@ -13,13 +13,24 @@ module.exports = {
       return res.json({resultado: "Usuário não existe"})
     }
 
-    // return res.json(nome);
+    //return res.json(nome);
 
     const [titulo] = await services.createT(nome)
+
+    //return res.json(titulo);
 
     await usuario.addTitulos(titulo);
 
     return res.json(titulo);
+  },
+
+  async allT(req,res){
+    let {user_id} = req.params;
+    user_id = parseInt(user_id);
+
+    const titulos = await services.findAllT(user_id)
+
+    return res.json(titulos);
   }
 
 }
