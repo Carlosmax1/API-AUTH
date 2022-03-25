@@ -1,4 +1,3 @@
-
 module.exports = {
   dialect: 'postgres',
   host: 'ec2-44-194-92-192.compute-1.amazonaws.com',
