@@ -15,6 +15,7 @@ module.exports ={
     const usuarios = await services.findAll();
 
     if(usuarios.length == 0){
+      res.status(400)
       return res.json({resultado: "Não existe usuários criados"});
     }
     
