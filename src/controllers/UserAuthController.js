@@ -1,6 +1,4 @@
 const services =require('./services');
-const jwt = require('jsonwebtoken');
-
 module.exports = {
 
   async auth(req,res){
@@ -14,8 +12,7 @@ module.exports = {
         return res.json({resultado: "Não existe esse usuario"})
       }else{
         res.status(200);
-        const resultBody = jwt.sign({email: usuario.email, nome: usuario.nome, id: usuario.id}, 'meusegredo');
-        res.json({token: resultBody});
+        res.json({id: usuario.id, nome: usuario.nome, apelido: usuario.apelido,foto: usuario.fotoDePerfil});
       }
     }else{
       res.status(401);

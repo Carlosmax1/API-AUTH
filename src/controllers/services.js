@@ -8,6 +8,7 @@ module.exports = {
   verifi: email => db.Usuario.findOne({where: email}),
   createCh: payloadC => db.checkins.create(payloadC),
   findUser: id => db.Usuario.findByPk(id),
+  findNick: apelido => db.Usuario.findOne({where: apelido}),
   findUserCh: id => db.Usuario.findByPk(id, {
     include: {association: "checkins"}
   }),

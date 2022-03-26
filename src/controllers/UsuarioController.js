@@ -41,6 +41,20 @@ module.exports ={
       res.status(404);
       return res.json({resultado: "Usuario não encontrado."})
     }
+  },
+
+  async findNickname(req, res){
+    const {apelido} = req.params;
+
+    const usuario = await services.findNick({apelido});
+
+    if(!usuario){
+      res.status(404);
+      return res.json({resultado: "Usuario não encontrado"});
+    }
+    
+    return res.json(usuario);
+  
   }
 
 };
