@@ -14,7 +14,7 @@ module.exports = {
         return res.json({resultado: "Não existe esse usuario"})
       }else{
         res.status(200);
-        const resultBody = jwt.sign({email: usuario.email, nome: usuario.nome}, 'meusegredo');
+        const resultBody = jwt.sign({email: usuario.email, nome: usuario.nome, id: usuario.id}, 'meusegredo');
         res.json({token: resultBody});
       }
     }else{

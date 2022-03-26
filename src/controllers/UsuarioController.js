@@ -28,6 +28,19 @@ module.exports ={
     
     return res.json(usuarios);
 
+  },
+
+  async findEmail(req,res){
+    const {user_id} = req.params;
+
+    const usuario = await services.findUser(user_id);
+
+    if(usuario){
+      return res.json(usuario);
+    }else{
+      res.status(404);
+      return res.json({resultado: "Usuario não encontrado."})
+    }
   }
 
 };
