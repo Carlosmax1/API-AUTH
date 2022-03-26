@@ -53,7 +53,7 @@ module.exports ={
       return res.json({resultado: "Usuario não encontrado"});
     }
     
-    return res.json({apelido: usuario.apelido});
+    return res.json({apelido: usuario.apelido, foto:usuario.fotoDePerfil});
   
   }
 
