@@ -4,8 +4,15 @@ module.exports ={
 
   async create(req, res){
 
-    const {body} = req;
-    const usuario = await services.create(body);
+    let {email} = req.body;
+    email = await services.verifi({email});
+    
+    if(email){
+      res.status(401);
+      return res.json({resultado: "Usuario já existe"});
+    }
+
+    const usuario = await services.create(req.body);
 
     return res.json(usuario);
   },
