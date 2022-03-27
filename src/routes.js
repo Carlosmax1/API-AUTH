@@ -3,6 +3,7 @@ const UserController = require('./controllers/UsuarioController');
 const CheckinsController = require('./controllers/CheckinsController');
 const TitulosController = require('./controllers/TitulosController');
 const UserAuthController = require('./controllers/UserAuthController');
+const StatusController = require('./controllers/StatusController');
 
 const routes = express.Router();
 
@@ -19,5 +20,7 @@ routes.get('/:user_id/titulo/all', TitulosController.allT);
 
 routes.get("/:user_id/usuario", UserController.findEmail);
 routes.get("/usuario/:apelido", UserController.findNickname);
+
+routes.get('/status/', StatusController.state);
 
 module.exports = routes;
