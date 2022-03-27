@@ -12,7 +12,8 @@ module.exports = {
         return res.json({resultado: "Não existe esse usuario"})
       }else{
         res.status(200);
-        res.json({id: usuario.id, nome: usuario.nome, apelido: usuario.apelido,foto: usuario.fotoDePerfil});
+        console.log(usuario);
+        res.json({id: usuario.id, nome: usuario.nome, apelido: usuario.apelido,foto: usuario.fotoDePerfil, titulo: usuario.titulo_atual});
       }
     }else{
       res.status(401);
