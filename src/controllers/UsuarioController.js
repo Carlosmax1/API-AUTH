@@ -4,10 +4,13 @@ module.exports ={
 
   async create(req, res){
 
-    let {email} = req.body;
-    email = await services.verifi({email});
+    let {email, apelido} = req.body;
     
-    if(email){
+    email = await services.verifi({email});
+    apelido = await services.verifi({apelido});
+    
+    
+    if(email || apelido){
       res.status(401);
       return res.json({resultado: "Usuario já existe"});
     }
